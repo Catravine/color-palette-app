@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import seedColors from './seedColors';
 import MiniPalette from './MiniPalette';
 import { makeStyles } from '@mui/styles';
@@ -6,7 +6,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: 'blue',
-    height: '100%',
+    height: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
