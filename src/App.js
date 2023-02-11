@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Palette from './Palette';
-import seedColors from "./seedColors";
-import { generatePalette } from './colorHelpers';
+import PaletteList from './PaletteList';
 
 function App() {
+
   return (
     <Routes>
-      <Route path="/" element={<h1>LIST OF PALETTES</h1>} />
-      <Route path="/palette/:id" element={<h1>individual palletes</h1>} />
+      <Route 
+        path="/" 
+        element={<PaletteList />} 
+      />
+      <Route 
+        path="/palette/:id" 
+        element={<Palette />}
+      />
     </Routes>
-    // <div className="App">
-    //   <Palette palette={generatePalette(seedColors[4])} />
-    // </div>
   );
 }
 
