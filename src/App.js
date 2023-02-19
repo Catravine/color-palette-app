@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
+import SingleColorPalette from './SingleColorPalette';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
       />
       <Route
         path="/palette/:paletteId/:colorId" 
-        element={<h1>SINGLE COLOR PAGE</h1>}
+        element={<SingleColorPalette/ >}
       />
     </Routes>
   );

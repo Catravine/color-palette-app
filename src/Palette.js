@@ -32,7 +32,12 @@ function Palette(props) {
   const { colors, paletteName, emoji } = paletteData;
   
   const colorBoxes = colors[level].map((color) => {
-    return <ColorBox background={color[format]} name={color.name} key={color.id} />
+    return <ColorBox 
+      background={color[format]} 
+      name={color.name} 
+      key={color.id} 
+      moreUrl={`/palette/${id}/${color.id}`}
+    />
   });
 
   return (
