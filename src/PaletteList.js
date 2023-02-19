@@ -2,6 +2,7 @@ import React from 'react';
 import seedColors from './seedColors';
 import MiniPalette from './MiniPalette';
 import { makeStyles } from '@mui/styles';
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,7 +34,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function PaletteList() {
+function PaletteList(props) {
+
+  let navigate = useNavigate();
+
+  const goToPalette = (id) => {
+    navigate(`/palette/${id}`)
+  }
 
   const classes = useStyles();
 
@@ -45,7 +52,11 @@ function PaletteList() {
         </nav>
         <div className={classes.palettes}>
           {seedColors.map(palette => (
-            <MiniPalette props={palette} key={palette.id} />
+            <MiniPalette 
+              props={palette} 
+              key={palette.id} 
+              handleClick={() => goToPalette(palette.id)} 
+            />
           ))}
         </div>
       </div>
