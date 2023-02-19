@@ -4,12 +4,13 @@ import { findPalette, gatherShades } from './colorHelpers';
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import PaletteFooter from './PaletteFooter';
+import { Link } from 'react-router-dom'
 
 function SingleColorPalette(props) {
 
   let { paletteId, colorId } = useParams();
 
-  const { paletteName, emoji } = props
+  const { paletteName, emoji, id } = props
 
   const palette = findPalette(paletteId);
   const shades = gatherShades(palette, colorId);
@@ -19,10 +20,9 @@ function SingleColorPalette(props) {
   const changeFormat = (val) => setFormat(val)
   
   const colorBoxes = shades.map((color, index) => {
-    console.log(color, index)
     return (
       <ColorBox 
-        key={`${color.id}-${index + 1}00`} 
+        key={color.name} 
         name={color.name} 
         background={color[format]} 
         showLink={false}
@@ -31,10 +31,13 @@ function SingleColorPalette(props) {
   })
 
   return (
-    <div className="Palette">
+    <div className="SingleColorPalette Palette">
       <Navbar handleChange={changeFormat} showingAllColors={false} />
       <div className="Palette-colors">
         {colorBoxes}
+        <div className="ColorBox go-back">
+          <Link to={`/palette/${paletteId}`} className="back-button">GO BACK</Link>
+        </div>
       </div>
       <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>

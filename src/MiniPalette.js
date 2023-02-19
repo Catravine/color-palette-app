@@ -50,7 +50,6 @@ function MiniPalette(props) {
   const classes = useStyles();
 
   const miniColorBoxes = colors.map(color => {
-    console.log(color);
     return (
       <div 
         key={color.name}

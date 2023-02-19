@@ -4,8 +4,6 @@ function PaletteFooter(props) {
 
   const { paletteName, emoji } = props;
 
-  console.log('footer content', paletteName, emoji)
-
   return (
     <footer className="Palette-footer">
       {paletteName}
