@@ -15,6 +15,10 @@ function App() {
         path="/palette/:id" 
         element={<Palette />}
       />
+      <Route
+        path="/palette/:paletteId/:colorId" 
+        element={<h1>SINGLE COLOR PAGE</h1>}
+      />
     </Routes>
   );
 }
