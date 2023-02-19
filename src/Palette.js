@@ -3,17 +3,10 @@ import { useParams } from 'react-router-dom'
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import "./Palette.css";
-import seedColors from "./seedColors";
-import { generatePalette } from './colorHelpers';
+import { findPalette, generatePalette } from './colorHelpers';
 
 
 function Palette(props) {
-
-  const findPalette = (id) => {
-    return seedColors.find(function(palette) {
-      return palette.id === id;
-    });
-  }
 
   let { id } = useParams();
   const paletteData = generatePalette(findPalette(id))
@@ -37,6 +30,7 @@ function Palette(props) {
       name={color.name} 
       key={color.id} 
       moreUrl={`/palette/${id}/${color.id}`}
+      showLink={true}
     />
   });
 
